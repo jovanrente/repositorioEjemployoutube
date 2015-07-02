@@ -1,0 +1,42 @@
+  <div  class="container" ng-controller="perosnactr" ng-init="caragarInicio()">
+
+    
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+          <input type="text" class="form-control" placeholder="Buscare Empleado" ng-model="buscar.firstName">
+        </div>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+          
+            <th>Id</th>
+             <th>
+              <a href="" ng-click="ordenarPor('firstName')">
+                Nombre/s
+              </a>
+              <span class="caret" style="cursor: pointer" ng-click="ordenarPor('-firstName')"></span>
+            </th>
+            <th>Apellido</th>
+            <th>Salario</th>
+            <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="empleado in empleados | orderBy:ordenSeleccionado | filter:buscar">
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.firstName | uppercase}}</td>
+            <td>{{empleado.lastName | lowercase}}</td>
+            <td>{{empleado.money | currency}}</td>
+            <td> {{empleado.email }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<!-- </body>
+</html> -->

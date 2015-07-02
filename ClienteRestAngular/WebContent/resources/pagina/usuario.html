@@ -1,0 +1,93 @@
+<!-- <div class="container" ng-controller="usuarioctr"> -->
+<div id="crearpdf" role="dialog" aria-hidden="true" class="modal fade"
+	ng-controller="usuarioctr">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<hr>
+				<form role="form" name="forma" ng-submit="submit()">
+
+					<div class="form-group"
+						ng-class="{'has-error':forma.idU.$invalid, 'has-success':forma.idU.$valid}">
+						<label for="inputId">Id</label>
+						<div class="input-group">
+							<span class="input-group-addon"><span
+								class="glyphicon glyphicon-user"></span></span> <input id="inputId"
+								type="text" class="form-control" placeholder="ID" name="idU"
+								ng-model="usuario.id" ng-blur="buscarId()" required>
+
+						</div>
+					</div>
+
+					<div class="form-group"
+						ng-class="{'has-error':forma.nombreU.$invalid, 'has-success':forma.nombreU.$valid}">
+						<label for="inputNombre">Nombre</label>
+						<div class="input-group">
+							<span class="input-group-addon"><span
+								class="glyphicon glyphicon-user"></span></span><input id="inputNombre"
+								type="text" class="form-control" placeholder="Nombre"
+								name="nombreU" ng-model="usuario.firstName" required>
+						</div>
+					</div>
+
+					<div class="form-group"
+						ng-class="{'has-error':forma.apellidoU.$invalid, 'has-success':forma.apellidoU.$valid}">
+						<label for="inputNombre">Apellido</label>
+						<div class="input-group">
+							<span class="input-group-addon"><span
+								class="glyphicon glyphicon-user"></span></span><input
+								id="inputApellido" type="text" class="form-control"
+								placeholder="Apellido" name="apellidoU"
+								ng-model="usuario.lastName" required>
+						</div>
+					</div>
+
+					<div class="form-group"
+						ng-class="{'has-error':forma.salarioU.$invalid, 'has-success':forma.salarioU.$valid}">
+						<label for="inputSalario">Salario</label>
+						<div class="input-group">
+							<span class="input-group-addon"><span
+								class="glyphicon glyphicon-usd"></span></span> <input id="inputSalario"
+								type="number" class="form-control" placeholder="$"
+								name="salarioU" ng-model="usuario.money" min="0"
+								max="999999999999" required> <span
+								class="input-group-addon">.00</span>
+						</div>
+					</div>
+
+					<div class="form-group"
+						ng-class="{'has-error':forma.emailU.$invalid, 'has-success':forma.emailU.$valid}">
+						<label for="inputEmail">Email</label>
+						<div class="input-group">
+							<span class="input-group-addon">@</span><input id="inputEmail"
+								type="email" class="form-control" placeholder="Email"
+								name="emailU" ng-model="usuario.email" required>
+						</div>
+						<div ng-show="forma.emailU.$dirty && forma.emailU.$invalid">
+							<p class="help-block text-danger"
+								ng-show="forma.emailU.$error.required">Campo abligatorio</p>
+							<p class="help-block text-danger"
+								ng-show="forma.emailU.$error.email">Email invalido</p>
+						</div>
+					</div>
+					<div id="label-switch" class="make-switch" data-on-label="SI"
+						data-off-label="NO">
+						<input type="checkbox" checked>
+					</div>
+					<!-- <div class="checkbox">
+				<label> <input type="checkbox" name="aceptoU"
+					ng-model="usuario.acepto" required>Aceptar.
+				</label>
+			</div> -->
+					<button class="btn btn-success" ng-disabled="forma.$invalid">Registrar</button>
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</form>
+<button class="btn btn-success" ng-disabled="forma.$invalid" ng-click="deleteId()">delete</button>
+				<hr>
+				<span class="lead text-primary"></span>
+			</div>
+		</div>
+	</div>
+</div>
